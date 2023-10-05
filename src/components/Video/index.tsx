@@ -8,6 +8,14 @@ import { FiMoreHorizontal, FiSend } from 'react-icons/fi'
 import {IoMdHeartEmpty} from 'react-icons/io'
 import {BsChat, BsEmojiSmile, BsBookmark} from 'react-icons/bs'
 import { IconContext } from 'react-icons/lib'
+
+
+import * as React from 'react';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
  
 
 // <div className="ConteinerVideo">
@@ -23,6 +31,8 @@ import { IconContext } from 'react-icons/lib'
 
 export default function BoxVideo(){
     // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     return(
         <>
         <header className="header-post" >
@@ -46,13 +56,19 @@ export default function BoxVideo(){
 
                 <section className="engagement-post" >
                     <div className="icons-1" >
-                        <div className="icon"><IoMdHeartEmpty /></div>
-                        <div className="icon"><BsChat /></div>
-                        <div className="icon"><FiSend /></div>
+                    <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />}  
+                    />
+
+                 <Checkbox
+                  {...label}
+                   icon={<BookmarkBorderIcon />}
+                  checkedIcon={<BookmarkIcon />}
+                         />
+
+                        
                     </div>
 
-                    
-                    <div className="icon"><BsBookmark /></div>
+                 
                     
                 </section>
             </IconContext.Provider>

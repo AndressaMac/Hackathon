@@ -7,6 +7,7 @@ import React from 'react'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button/Button'
+import image from '../../assets/Nome_preto-05.svg'
 
 
 export default function Cadastro(){
@@ -20,9 +21,12 @@ export default function Cadastro(){
     };
        
     return(
+      <div className='fundo'>
       <div className='Conteiner'> 
-      <TextField id="filled-basic" label="Nome" variant="filled" />
-      <TextField id="filled-basic" label="Email" variant="filled" />
+      <img src={image} alt='logo'/>
+
+      <TextField id="filled-basic" label="Nome" variant="filled" style={{marginBottom:'1rem'}} />
+      <TextField id="filled-basic" label="Email" variant="filled" style={{marginBottom:'1rem'}} />
       <FilledInput
             id="filled-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -38,11 +42,13 @@ export default function Cadastro(){
                 </IconButton>
               </InputAdornment>
             }
+            style={{marginBottom:'1rem'}}
           />
-           <Button variant="contained">Cadastre</Button>
+           <Button variant="contained"  style={{background:'#66B4E3'}} >Cadastre</Button>
 
 
-                           
+                     
+      </div>
       </div>
     )
 }

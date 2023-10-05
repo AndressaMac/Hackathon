@@ -7,6 +7,9 @@ export default function Feed(){
         <>
         <MenuBar/>
         <BoxVideo/>
+        <BoxVideo/>
+        <BoxVideo/>
+        <BoxVideo/>
         </>
     )
 }

@@ -10,6 +10,8 @@ import IconButton from '@mui/material/IconButton/IconButton';
  import Visibility from '@mui/icons-material/Visibility';
  import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import './style.css'
+import FilledInput from '@mui/material/FilledInput/FilledInput';
+import image from '../../assets/Nome_preto-05.svg'
 
 export default function Login() {
 
@@ -22,18 +24,13 @@ export default function Login() {
     };
 
     return(
+      <div className='fundo'>
           <div className='Conteiner'>
-               <TextField
-          label="Usuário"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
-          }}
-        />
+            <img src={image} alt='logo'/>
+          <TextField id="filled-basic" label="Nome" variant="filled" style={{marginBottom:'1rem'}}/>
 
-         <OutlinedInput
-            id="outlined-adornment-password"
+          <FilledInput
+            id="filled-adornment-password"
             type={showPassword ? 'text' : 'password'}
             endAdornment={
               <InputAdornment position="end">
@@ -42,16 +39,18 @@ export default function Login() {
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
+               
                 >
                    {showPassword ? <VisibilityOff /> : <Visibility />} 
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
+            style={{marginBottom:'1rem'}}
           />
-         <Button variant="contained">Contained</Button>
+         <Button variant="contained" style={{background:'#66B4E3'}}>Login</Button>
 
          <p><a href="url">Cadrasta-se</a></p>
+          </div>
           </div>
     )
 }
