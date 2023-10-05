@@ -1,40 +1,61 @@
-import * as React from 'react';
+import React, { useState } from "react";
 
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
 //import AccountCircle from '@mui/icons-material/AccountCircle';
-import Button from '@mui/material/Button';
-import OutlinedInput from '@mui/material/OutlinedInput/OutlinedInput';
-import IconButton from '@mui/material/IconButton/IconButton';
+import Button from "@mui/material/Button";
+import OutlinedInput from "@mui/material/OutlinedInput/OutlinedInput";
+import IconButton from "@mui/material/IconButton/IconButton";
 // import Visibility from '@mui/icons-material/Visibility';
 // import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import './style.css'
+import "./style.css";
+import { Link } from "react-router-dom";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { FormControl, InputLabel } from "@mui/material";
 
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
 
-    const [showPassword, setShowPassword] = React.useState(false);
+  const [senha, setSenha] = useState("");
+  const [usuario, setUsuario] = useState("");
 
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-  
-    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-    };
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    return(
-          <div className='Conteiner'>
-               <TextField
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
+
+  const fazerLogin = () => {
+    sessionStorage.setItem("cad_usuario", usuario);
+    console.log("valores", senha, usuario);
+
+    window.location.href = "/feed";
+  };
+
+  return (
+    <div className="Conteiner">
+      <form>
+        <TextField
+          onChange={(e) => setUsuario(e.target.value)}
+          value={usuario}
           label="Usuário"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
+          sx={{ m: 1, width: "25ch" }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
         />
-
-         <OutlinedInput
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">senha</InputLabel>
+          <OutlinedInput
+            onChange={(e) => setSenha(e.target.value)}
+            value={senha}
+            label="senha"
             id="outlined-adornment-password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -43,15 +64,20 @@ export default function Login() {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {/* {showPassword ? <VisibilityOff /> : <Visibility />} */}
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
           />
-         <Button variant="contained">Contained</Button>
+        </FormControl>
+        <Button onClick={fazerLogin} variant="contained">
+          Entrar
+        </Button>
 
-         <p><a href="url">Cadrasta-se</a></p>
-          </div>
-    )
+        <p>
+          <Link to="/cadastro">cadastre-se</Link>
+        </p>
+      </form>
+    </div>
+  );
 }
