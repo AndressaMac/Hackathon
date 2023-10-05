@@ -3,12 +3,12 @@ import * as React from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import TextField from '@mui/material/TextField';
-//import AccountCircle from '@mui/icons-material/AccountCircle';
+
 import Button from '@mui/material/Button';
 import OutlinedInput from '@mui/material/OutlinedInput/OutlinedInput';
 import IconButton from '@mui/material/IconButton/IconButton';
-// import Visibility from '@mui/icons-material/Visibility';
-// import VisibilityOff from '@mui/icons-material/VisibilityOff';
+ import Visibility from '@mui/icons-material/Visibility';
+ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import './style.css'
 
 export default function Login() {
@@ -43,7 +43,7 @@ export default function Login() {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {/* {showPassword ? <VisibilityOff /> : <Visibility />} */}
+                   {showPassword ? <VisibilityOff /> : <Visibility />} 
                 </IconButton>
               </InputAdornment>
             }

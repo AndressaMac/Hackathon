@@ -4,8 +4,8 @@ import FilledInput from '@mui/material/FilledInput/FilledInput'
 import InputAdornment from '@mui/material/InputAdornment/InputAdornment'
 import IconButton from '@mui/material/IconButton/IconButton'
 import React from 'react'
-// import Visibility from '@mui/icons-material/Visibility';
-// import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button/Button'
 
 
@@ -34,7 +34,7 @@ export default function Cadastro(){
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {/* {showPassword ? <VisibilityOff /> : <Visibility />} */}
+                   {showPassword ? <VisibilityOff /> : <Visibility />} 
                 </IconButton>
               </InputAdornment>
             }

@@ -1,0 +1,26 @@
+.profileInfor{
+    display:flex;
+    flex-direction:row;
+    gap:1rem;
+    margin-bottom:3rem;
+    margin-left:0.5rem;
+}
+.contentPost{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1px;
+    align-items: center;
+    justify-items: center
+}
+.img-header-post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.postProfile{
+    width: 40px;
+    height: 40px;
+    background-color:gray;
+    border-radius: 10px;
+}
