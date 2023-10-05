@@ -50,7 +50,7 @@ export default function MenuBar(){
                             <FiHeart />
                         </div>
                         
-
+                        
                     </IconContext.Provider>
                     <img className="img-user" src="" />
                 </div>
