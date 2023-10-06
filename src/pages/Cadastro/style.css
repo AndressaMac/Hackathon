@@ -5,3 +5,13 @@
     align-content: center;
     width: 20rem;
 }
+
+.fundo{
+    background-image: url('../../assets/Background-04.svg');
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}

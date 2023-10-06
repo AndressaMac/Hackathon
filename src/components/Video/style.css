@@ -42,7 +42,8 @@
 
 .img-post img {
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .footer-post {
@@ -56,7 +57,7 @@
 
 .engagement-post .icons-1 {
     display: flex;
-    gap: 16px;
+    justify-content: space-between;
 }
 
 .icon {

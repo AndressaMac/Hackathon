@@ -14,6 +14,9 @@ import { Link } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FormControl, InputLabel } from "@mui/material";
 
+import "./style.css";
+import image from "../../assets/Nome_preto-05.svg";
+
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -47,19 +50,18 @@ export default function Login() {
   };
 
   return (
-    <div className="Conteiner">
-      <form>
+    <div className="fundo">
+      <div className="Conteiner">
+        <img src={image} alt="logo" />
         <TextField
           onChange={(e) => setUsuario(e.target.value)}
           value={usuario}
-          label="Usuário"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: "25ch" }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
+          id="filled-basic"
+          label="Nome"
+          variant="filled"
+          style={{ marginBottom: "1rem" }}
         />
-        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+        <FormControl variant="outlined" style={{ marginBottom: "1rem" }}>
           <InputLabel htmlFor="outlined-adornment-password">senha</InputLabel>
           <OutlinedInput
             onChange={(e) => {
@@ -74,7 +76,7 @@ export default function Login() {
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
-                  aria-label="toggle password visibility"
+                  aria-label="mudar visibilidade da senha"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
@@ -85,14 +87,18 @@ export default function Login() {
             }
           />
         </FormControl>
-        <Button onClick={fazerLogin} variant="contained">
-          Entrar
+        <Button
+          onClick={fazerLogin}
+          variant="contained"
+          style={{ background: "#66B4E3" }}
+        >
+          Login
         </Button>
 
         <p>
           <Link to="/cadastro">cadastre-se</Link>
         </p>
-      </form>
+      </div>
     </div>
   );
 }

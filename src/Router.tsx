@@ -4,6 +4,7 @@ import Cadastro from "./pages/Cadastro";
 import Feed from "./pages/Feed";
 import Perfil from "./pages/Perfil";
 import { FC } from "react";
+import Cursos from "./pages/Cursos";
 
 const RequireAuth: FC<{ children: React.ReactElement }> = ({ children }) => {
   const userIsLogged = sessionStorage.getItem("cad_usuario");
@@ -33,6 +34,14 @@ export default function Router() {
         element={
           <RequireAuth>
             <Perfil />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/cursos"
+        element={
+          <RequireAuth>
+            <Cursos />
           </RequireAuth>
         }
       />
