@@ -5,6 +5,7 @@ import ListItemIcon from '@mui/material/ListItemIcon/ListItemIcon'
 import ListItem from '@mui/material/ListItem/ListItem'
 import ListItemText from '@mui/material/ListItemText/ListItemText'
 import StarIcon from '@mui/icons-material/Star';
+import MenuBar from '../../components/Menu'
 
 
 export default function Cursos(){
