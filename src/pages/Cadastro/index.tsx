@@ -31,7 +31,6 @@ export default function Cadastro() {
   const criarCadastro = () => {
     if (senhaValida && senha && usuario) {
       sessionStorage.setItem("cad_usuario", usuario);
-      console.log("valores", senha, usuario);
 
       window.location.href = "/login";
     }

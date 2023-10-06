@@ -10,7 +10,7 @@ import IconButton from "@mui/material/IconButton/IconButton";
 // import Visibility from '@mui/icons-material/Visibility';
 // import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FormControl, InputLabel } from "@mui/material";
 
@@ -32,17 +32,21 @@ export default function Login() {
     event.preventDefault();
   };
 
+  const navigate = useNavigate();
+  const routeChange = (rota: string) => {
+    navigate(rota);
+  };
+
   const fazerLogin = () => {
     if (senhaValida && senha && usuario) {
       sessionStorage.setItem("cad_usuario", usuario);
-      console.log("valores", senha, usuario);
 
-      window.location.href = "/feed";
+      routeChange("/feed");
     }
   };
 
   const validarSenha = (value: string) => {
-    if (value.length >= 5) {
+    if (value.length >= 1) {
       setSenhaValida(true);
     } else {
       setSenhaValida(false);
