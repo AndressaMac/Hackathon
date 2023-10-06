@@ -1,16 +1,13 @@
 
-// import Checkbox from '@mui/material/Checkbox/Checkbox'
-// import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-// import Favorite from '@mui/icons-material/Favorite';
 import './style.css'
 
-import { FiMoreHorizontal, FiSend } from 'react-icons/fi'
-import {IoMdHeartEmpty} from 'react-icons/io'
-import {BsChat, BsEmojiSmile, BsBookmark} from 'react-icons/bs'
+import { FiMoreHorizontal,  } from 'react-icons/fi'
+
+import {BsEmojiSmile} from 'react-icons/bs'
 import { IconContext } from 'react-icons/lib'
 
 
-import * as React from 'react';
+
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
@@ -18,19 +15,9 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
  
 
-// <div className="ConteinerVideo">
-        //     <div>
-
-        //     </div>
-        //     <div className='Conteinerinfo'>
-        //     <p>Titulo do Post</p>
-        //     <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
-        //     </div>
-        // </div>
-
 
 export default function BoxVideo(){
-    // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    
     
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     return(

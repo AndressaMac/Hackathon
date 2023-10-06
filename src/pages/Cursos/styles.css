@@ -3,3 +3,12 @@
     height: 20px;
     border-radius: 50%;
 }
+
+.Conteiner {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    
+    
+}
