@@ -13,7 +13,6 @@ import "./menu.css";
 export default function MenuBar() {
   const navigate = useNavigate();
   const routeChange = (rota: string) => {
-    console.log("rota", rota);
     navigate(rota);
   };
 

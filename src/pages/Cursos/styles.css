@@ -1,14 +1,31 @@
+h2,h4 {
+    margin-left: 20px;
+}
+
 .img-header-post {
     width: 20px;
     height: 20px;
     border-radius: 50%;
 }
 
-.Conteiner {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    
-    
+.container {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 12px;
+}
+
+.container img {
+    margin: 15px;
+    width: 50%;
+    border-radius: 10%;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.lista__interesse {
+    list-style-type: disc;
+    margin-left: 40px;
+    margin-bottom: 20px;
 }
