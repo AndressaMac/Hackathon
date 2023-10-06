@@ -1,7 +1,7 @@
 
 
 
-# EducaLike - Rede Social Educativa para Adolescentes
+# EducaLike - Rede Social  para Adolescentes
 
 
 ## Funcionalidades Principais
