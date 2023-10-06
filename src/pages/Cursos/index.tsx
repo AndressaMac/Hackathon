@@ -46,7 +46,7 @@ export default function Cursos(){
                   <img src="https://github.com/maykbrito.png"/>
             </div>
         </div>
-      </div>
+      {/* </div> */}
       <MenuBar />
     </>
   );
