@@ -1,21 +1,50 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Feed from "./pages/Feed";
 import Perfil from "./pages/Perfil";
+import { FC } from "react";
 import Cursos from "./pages/Cursos";
 
+const RequireAuth: FC<{ children: React.ReactElement }> = ({ children }) => {
+  const userIsLogged = sessionStorage.getItem("cad_usuario");
 
+  if (!userIsLogged) {
+    return <Navigate to="/login" />;
+  }
+  return children;
+};
 
 export default function Router() {
-    return (
-      <Routes>
-      
-        <Route path="/login" element={<Login />}/>
-         <Route path="/cadastro" element={<Cadastro/>}/>
-         <Route path="/Feed" element={<Feed/>}/>
-         <Route path="/Perfil" element={<Perfil/>}/>
-         <Route path="/cursos" element={<Cursos/>}/>
-      </Routes>
-    )
-  }
+  return (
+    <Routes>
+      <Route path="" element={<Navigate to="/feed" />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/cadastro" element={<Cadastro />} />
+      <Route
+        path="/feed"
+        element={
+          <RequireAuth>
+            <Feed />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/perfil"
+        element={
+          <RequireAuth>
+            <Perfil />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/cursos"
+        element={
+          <RequireAuth>
+            <Cursos />
+          </RequireAuth>
+        }
+      />
+    </Routes>
+  );
+}
