@@ -19,6 +19,7 @@ export default function Login() {
 
   const [senha, setSenha] = useState("");
   const [usuario, setUsuario] = useState("");
+  const [senhaValida, setSenhaValida] = useState(true);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -29,10 +30,20 @@ export default function Login() {
   };
 
   const fazerLogin = () => {
-    sessionStorage.setItem("cad_usuario", usuario);
-    console.log("valores", senha, usuario);
+    if (senhaValida && senha && usuario) {
+      sessionStorage.setItem("cad_usuario", usuario);
+      console.log("valores", senha, usuario);
 
-    window.location.href = "/feed";
+      window.location.href = "/feed";
+    }
+  };
+
+  const validarSenha = (value: string) => {
+    if (value.length >= 5) {
+      setSenhaValida(true);
+    } else {
+      setSenhaValida(false);
+    }
   };
 
   return (
@@ -51,11 +62,15 @@ export default function Login() {
         <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">senha</InputLabel>
           <OutlinedInput
-            onChange={(e) => setSenha(e.target.value)}
+            onChange={(e) => {
+              setSenha(e.target.value);
+              validarSenha(e.target.value);
+            }}
             value={senha}
             label="senha"
             id="outlined-adornment-password"
             type={showPassword ? "text" : "password"}
+            error={!senhaValida}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
