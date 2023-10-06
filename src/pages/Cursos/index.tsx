@@ -4,16 +4,15 @@ import ListItemButton from '@mui/material/ListItemButton/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon/ListItemIcon'
 import ListItem from '@mui/material/ListItem/ListItem'
 import ListItemText from '@mui/material/ListItemText/ListItemText'
-import icon from '../../assets/icone_roxo-10.svg'
+import StarIcon from '@mui/icons-material/Star';
+
 
 export default function Cursos(){
 
     return(
         <>
-        <div className='Conteiner'>
-            <img src={icon} style={{width:'100px', height:'100px',alignSelf:'center'}}></img>
-            <h1 style={{padding:'2rem', fontSize:'2rem'}}>Seus interesses são em: </h1>
-           
+        <div>
+            <h1>Seus interesses são em </h1>
             <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       aria-label="contacts"
@@ -21,24 +20,23 @@ export default function Cursos(){
       <ListItem disablePadding>
         <ListItemButton>
           <ListItemIcon>
+            <StarIcon />
           </ListItemIcon>
-          <ListItemText primary="Biologia" />
+          <ListItemText primary="Chelsea Otakan" />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
         <ListItemButton>
-          <ListItemText inset primary="
-          jornalismo" />
+          <ListItemText inset primary="Eric Hoffman" />
         </ListItemButton>
       </ListItem>
     </List>
         </div>
         
         <div>
-            <h1 style={{padding:'2rem', fontSize:'2rem'}}>Aqui alguns cursos que posso gostar</h1>
+            <h1>Aqui alguns cursos que posso gostar</h1>
             <div className="img-post" >
                   <img src="https://github.com/maykbrito.png"/>
-                  
             </div>
             <div className="img-post" >
                   <img src="https://github.com/maykbrito.png"/>
@@ -47,7 +45,8 @@ export default function Cursos(){
                   <img src="https://github.com/maykbrito.png"/>
             </div>
         </div>
-        
-        </>
-    )
+      </div>
+      <MenuBar />
+    </>
+  );
 }

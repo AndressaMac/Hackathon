@@ -1,56 +1,104 @@
-import * as React from 'react';
+import React, { useState } from "react";
 
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
+//import AccountCircle from '@mui/icons-material/AccountCircle';
+import Button from "@mui/material/Button";
+import OutlinedInput from "@mui/material/OutlinedInput/OutlinedInput";
+import IconButton from "@mui/material/IconButton/IconButton";
+// import Visibility from '@mui/icons-material/Visibility';
+// import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import "./style.css";
+import { Link } from "react-router-dom";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { FormControl, InputLabel } from "@mui/material";
 
-import Button from '@mui/material/Button';
-import OutlinedInput from '@mui/material/OutlinedInput/OutlinedInput';
-import IconButton from '@mui/material/IconButton/IconButton';
- import Visibility from '@mui/icons-material/Visibility';
- import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import './style.css'
-import FilledInput from '@mui/material/FilledInput/FilledInput';
-import image from '../../assets/Nome_preto-05.svg'
+import "./style.css";
+import image from "../../assets/Nome_preto-05.svg";
 
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
 
-    const [showPassword, setShowPassword] = React.useState(false);
+  const [senha, setSenha] = useState("");
+  const [usuario, setUsuario] = useState("");
+  const [senhaValida, setSenhaValida] = useState(true);
 
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-  
-    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-    };
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    return(
-      <div className='fundo'>
-          <div className='Conteiner'>
-            <img src={image} alt='logo'/>
-          <TextField id="filled-basic" label="Nome" variant="filled" style={{marginBottom:'1rem'}}/>
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
 
-          <FilledInput
-            id="filled-adornment-password"
-            type={showPassword ? 'text' : 'password'}
+  const fazerLogin = () => {
+    if (senhaValida && senha && usuario) {
+      sessionStorage.setItem("cad_usuario", usuario);
+      console.log("valores", senha, usuario);
+
+      window.location.href = "/feed";
+    }
+  };
+
+  const validarSenha = (value: string) => {
+    if (value.length >= 5) {
+      setSenhaValida(true);
+    } else {
+      setSenhaValida(false);
+    }
+  };
+
+  return (
+    <div className="fundo">
+      <div className="Conteiner">
+        <img src={image} alt="logo" />
+        <TextField
+          onChange={(e) => setUsuario(e.target.value)}
+          value={usuario}
+          id="filled-basic"
+          label="Nome"
+          variant="filled"
+          style={{ marginBottom: "1rem" }}
+        />
+        <FormControl variant="outlined" style={{ marginBottom: "1rem" }}>
+          <InputLabel htmlFor="outlined-adornment-password">senha</InputLabel>
+          <OutlinedInput
+            onChange={(e) => {
+              setSenha(e.target.value);
+              validarSenha(e.target.value);
+            }}
+            value={senha}
+            label="senha"
+            id="outlined-adornment-password"
+            type={showPassword ? "text" : "password"}
+            error={!senhaValida}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
-                  aria-label="toggle password visibility"
+                  aria-label="mudar visibilidade da senha"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
-               
                 >
-                   {showPassword ? <VisibilityOff /> : <Visibility />} 
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }
-            style={{marginBottom:'1rem'}}
           />
-         <Button variant="contained" style={{background:'#66B4E3'}}>Login</Button>
+        </FormControl>
+        <Button
+          onClick={fazerLogin}
+          variant="contained"
+          style={{ background: "#66B4E3" }}
+        >
+          Login
+        </Button>
 
-         <p><a href="url">Cadrasta-se</a></p>
-          </div>
-          </div>
-    )
+        <p>
+          <Link to="/cadastro">cadastre-se</Link>
+        </p>
+      </div>
+    </div>
+  );
 }
